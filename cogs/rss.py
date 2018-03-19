@@ -111,7 +111,7 @@ class RSSFeed(object):
         #ensure every rss url has a specified id and most recent post epoch
         try:
             latest_post_time = feeds['feeds'][index]['latest_post_time']
-        except IndexError:
+        except IndexError as e:
             dict = {}
             dict['id'] = index
             dict['latest_post_time'] = 0
@@ -119,6 +119,8 @@ class RSSFeed(object):
             dataIO.save_json("data/rss/feeds.json",feeds)
             feeds = dataIO.load_json("data/rss/feeds.json")
             latest_post_time = feeds['feeds'][index]['latest_post_time']
+            print(e)
+            print("Error in _get_feed")
         
         news = []
         feed = feedparser.parse(rss_url)
@@ -150,7 +152,7 @@ class RSSFeed(object):
         return news
         
 #---------------------------------------------------------------------------------------------#       
-    async def _rss(self):
+    async def _rss_loop(self):
         """ Checks for rss updates periodically and posts any new content to the specific channel"""
         
         while self == self.bot.get_cog("RSSFeed"):
@@ -218,6 +220,6 @@ def setup(bot):
     #check_filesystem()
     rss_obj = RSSFeed(bot)
     bot.add_cog(rss_obj)
-    bot.loop.create_task(rss_obj._rss())
+    bot.loop.create_task(rss_obj._rss_loop())
 
 #---------------------------------------------------------------------------------------------#
