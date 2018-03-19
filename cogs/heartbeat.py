@@ -33,6 +33,9 @@ class Heartbeat:
             except asyncio.CancelledError as e:              
                 print("Error in sleeping.")                        
                 raise e
+    @commands.command(name="heartbeat", pass_context=False, no_pm=True)
+    async def _check(self):
+        await self.bot.say("**AWS EC2** is responding.")
 
 def setup(bot):
     #check_filesystem()
