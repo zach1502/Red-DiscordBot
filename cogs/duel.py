@@ -66,7 +66,8 @@ WEAPONS = {
     },
     'stab': {
         'naginata': 5,
-        'lance': 4
+        'lance': 4,
+        'needles': 2
     }
 }
 
@@ -131,8 +132,8 @@ MELEE = {
 MARTIAL = {'roundhouse kick': 6,
            'uppercut': 5,
            'bitch-slap': 2,
-           'headbutt': 4
-           'flying kick': 5
+           'headbutt': 4,
+           'flying kick': 5,
            'consecutive normal punches': 3}
 
 BODYPARTS = [
@@ -183,7 +184,7 @@ HEALS = {
     'inject': {
         'morphine': 4,
         'nanomachines': 5,
-        'fentanyl': 4
+        'more blood': 2
     },
     'smoke': {
         'a fat joint': 2,
