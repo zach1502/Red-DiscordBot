@@ -125,7 +125,17 @@ class Russianroulette:
                 await self.bot.say("{} has started a game of roulette with a starting bet of "
                                    "{}\nThe game will start in 30 seconds or when 5 more "
                                    "players join.".format(user.name, bet))
-                await asyncio.sleep(30)
+                await asyncio.sleep(25)
+                await self.bot.say("Starting in 5")
+                await asyncio.sleep(1)
+                await self.bot.say("Starting in 4")
+                await asyncio.sleep(1)
+                await self.bot.say("Starting in 3")
+                await asyncio.sleep(1)
+                await self.bot.say("Starting in 2")
+                await asyncio.sleep(1)
+                await self.bot.say("Starting in 1")
+                await asyncio.sleep(1)
                 if len(settings["Players"].keys()) == 1:
                     await self.bot.say("Sorry I can't let you play by yourself, that's just "
                                        "suicide.\nTry again when you find some 'friends'.")
