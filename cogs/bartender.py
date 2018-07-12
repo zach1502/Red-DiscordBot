@@ -53,9 +53,9 @@ class Bartender:
         else:
         #Get Economy data
             if self.econ_interlink() != None and self.settings["bar_status"]:
-            econ = self.econ_interlink()
+                econ = self.econ_interlink()
             else:
-            await self.bot.reply("Sorry mate, the bar is closed.")
+                await self.bot.reply("Sorry mate, the bar is closed.")
             return
 
         price = -1
