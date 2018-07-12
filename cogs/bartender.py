@@ -52,9 +52,9 @@ class Bartender:
             await self.bot.reply("Whoa, I'm afraid that I don't have enough glasses to serve you.")
         else:
         #Get Economy data
-        if self.econ_interlink() != None and self.settings["bar_status"]:
+            if self.econ_interlink() != None and self.settings["bar_status"]:
             econ = self.econ_interlink()
-        else:
+            else:
             await self.bot.reply("Sorry mate, the bar is closed.")
             return
 
