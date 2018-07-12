@@ -48,7 +48,7 @@ class Bartender:
         content = ctx.message.content
         mentions = ctx.message.mentions
         author = ctx.message.author
-        if amount > 100
+        if amount>100
             await self.bot.reply("Whoa, I'm afraid that I don't have enough glasses to serve you.")
             else:
         #Get Economy data
