@@ -23,7 +23,7 @@ class Guess:
     async def mycom(self):
 
         """welcoming the user"""
-    await self.bot.say("Guess the word im thinking of!")
+    await self.bot.reply("guess what word I'm thinking of!")
 
 """thinking"""
 await asyncio.sleep(3)
