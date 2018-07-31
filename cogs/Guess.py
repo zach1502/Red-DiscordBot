@@ -25,7 +25,7 @@ class Guess:
     @commands.command()
     async def mycom(self):
 
-"""welcoming the user"""
+    """welcoming the user"""
 await self.bot.say("Guess the word im thinking of!")
 
 """thinking"""
