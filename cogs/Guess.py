@@ -14,41 +14,40 @@ import discord
 import os
 import asyncio
 import chardet
-"""A class (that I copy pastaed)"""
-"""this is the comment format right?"""
+"""Guessing game """
 class Guess:
     
 
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(name="guess")
     async def mycom(self):
 
     """welcoming the user"""
-await self.bot.say("Guess the word im thinking of!")
+    await self.bot.say("Guess the word im thinking of!")
 
 """thinking"""
-time.sleep(3)
+await asyncio.sleep(3)
 
 """start guess"""
 await self.bot.say("Start guessing...(hint: no caps/")
-time.sleep(0.5)
+await asyncio.sleep(0.5)
 
-"""make secret"""
+#make secret
 secret = "its gonna change"
 
 """Probably need to create a word list and grab words from there"""
-items = ["here", "are", "some", "strings", "of","which", "we", "will",
-         "select", "one", "two", "three", "four", "five", "six",
-         "seven", "eight", "nine", "ten", "python", "ruby", "java", "javascript", "traceback", "print",
-         "random", "input", "raw", "print", "sleep", "time", "secret", "while", "then", "if",
-         "loop", "in", "else", "break", "empty", "mocha", "matcha", "money", "spam","jazz","jam","spaz",
-         "binder", "jokes", "chemistry", "person", "matcha", "night", "everyone", "pasta", "craving",
-         "jolly", "ranch", "lit", "still", "first", "second", "third", "skull", "ketchup",
-         "ice", "red", "life", "death", "magic", "comments", "class", "secret", "value",
-          "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn",
-          "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster"]
+items = ["here", "are", "some", "strings", "of","which", "we", "will", 
+         "select", "one", "two", "three", "four", "five", "six", 
+         "seven", "eight", "nine", "ten", "python", "ruby", "java", "javascript", "traceback", "print", 
+         "random", "input", "raw", "print", "sleep", "time", "secret", "while", "then", "if", 
+         "loop", "in", "else", "break", "empty", "mocha", "matcha", "money", "spam","jazz","jam","spaz", 
+         "binder", "jokes", "chemistry", "person", "matcha", "night", "everyone", "pasta", "craving", 
+         "jolly", "ranch", "lit", "still", "first", "second", "third", "skull", "ketchup", 
+         "ice", "red", "life", "death", "magic", "comments", "class", "secret", "value", 
+         "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn", 
+         "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster"]
  
  """picks one word from list"""
 secret = items[random.randrange(len(items))]
@@ -57,29 +56,17 @@ secret = items[random.randrange(len(items))]
 guesses = ''
 
 
-"""determine the number of turns"""
 turns = 10
 
-"""Create while loop"""
 
-"""check if the turns are more than zero"""
-while turns > 0:         
-
-    """ make a counter that starts with zero"""
-    failed = 0             
-
-    """ for every character in secret_word    """
-    for char in secret:      
-
-    """ see if the character is in the players guess"""
-        if char in guesses:    
+while turns > 0:
+    failed = 0
+    for char in secret:
+        if char in guesses:
     
         """ print then out the character"""
-            await self.bot.say(char),    
-
+            await self.bot.say(char),
         else:
-    
-        """ if not found, print a dash.."""
             await self.bot.say("_"),     
        
         """...and increase the failed counter with one"""
@@ -97,7 +84,7 @@ while turns > 0:
     print
 
     """ ask the user go guess a character"""
-    guess = raw_input("guess a character:") 
+    guess = self.bot.discord.wait_for_message() 
 
     """ set the players guess to guesses"""
     guesses += guess                    
@@ -112,7 +99,7 @@ while turns > 0:
         await self.bot.say("Wrong")    
  
     """ number of turns left"""
-        await self.bot.say("You have", + turns, 'more guesses') 
+        await self.bot.say("You have", + turns, "more guesses") 
  
     """ if the turns are equal to zero"""
         if turns == 0:           
