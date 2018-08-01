@@ -59,12 +59,10 @@ while turns > 0:
     failed = 0
     for char in secret:
         if char in guesses:
-    
-        """ print then out the character"""
+            """ print then out the character"""
             await self.bot.say(char),
         else:
             await self.bot.say("_"),     
-       
         """...and increase the failed counter with one"""
             failed += 1    
 
