@@ -58,14 +58,14 @@ while turns > 0:
     failed = 0
     for char in secret:
         if char in guesses:
-            await self.bot.say(char),
+            await self.bot.reply(char),
         else:
-            await self.bot.say("_"),
+            await self.bot.reply("_"),
             failed += 1
     """ if failed is equal to zero"""
     """ Win text"""
     if failed == 0:        
-        await self.bot.say("You won! Good job! :aquaThumbsUp:")  
+        await self.bot.reply("You won! Good job! :aquaThumbsUp:")  
 
     """ exit the script"""
         break              
