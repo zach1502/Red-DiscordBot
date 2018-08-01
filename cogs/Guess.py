@@ -21,9 +21,8 @@ class Guess:
 
     @commands.command(name="guess")
     async def mycom(self):
-
         """welcoming the user"""
-    await self.bot.reply("guess what word I'm thinking of!")
+        await self.bot.reply("guess what word I'm thinking of!")
 
 """thinking"""
 await asyncio.sleep(3)
