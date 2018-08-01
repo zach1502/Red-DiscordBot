@@ -24,12 +24,12 @@ class Guess:
         """welcoming the user"""
         await self.bot.reply("guess what word I'm thinking of!")
 
-"""thinking"""
-await asyncio.sleep(3)
+        """thinking"""
+        await asyncio.sleep(3)
 
-"""start guess"""
-await self.bot.say("Start guessing...(hint: no caps/")
-await asyncio.sleep(0.5)
+        """start guess"""
+        await self.bot.say("Start guessing...(hint: no caps/")
+        await asyncio.sleep(0.5)
 
 #make secret
 secret = "its gonna change"
