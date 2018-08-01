@@ -45,8 +45,7 @@ items = ["here", "are", "some", "strings", "of","which", "we", "will",
          "ice", "red", "life", "death", "magic", "comments", "class", "secret", "value", 
          "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn", 
          "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster"]
- 
- """picks one word from list"""
+"""picks one word from list"""
 secret = items[random.randrange(len(items))]
 
 """creates a variable with an empty value"""
@@ -103,3 +102,11 @@ while turns > 0:
     
         """losing text"""
             await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Set-up
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#def setup(bot):
+#   if not import random:
+#       raise RuntimeError("Random failed to import")
+#       return
+#   bot.add_cog(Guess(bot))
