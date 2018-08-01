@@ -1,7 +1,6 @@
 """importsss (that i don't know if it belongs here)"""
 
 """you can get rid of excess comments"""
-
 import time
 import random
 from discord.ext import commands
@@ -59,15 +58,11 @@ while turns > 0:
     failed = 0
     for char in secret:
         if char in guesses:
-            """ print then out the character"""
             await self.bot.say(char),
         else:
-            await self.bot.say("_"),     
-        """...and increase the failed counter with one"""
-            failed += 1    
-
+            await self.bot.say("_"),
+            failed += 1
     """ if failed is equal to zero"""
-
     """ Win text"""
     if failed == 0:        
         await self.bot.say("You won! Good job! :aquaThumbsUp:")  
