@@ -68,7 +68,7 @@ class Guess:
 
             print
             """ ask the user go guess a character"""
-            guess = self.bot.discord.wait_for_message(timeout=None, *, author=None, channel=None, content=None, check=None)
+            guess = self.bot.discord.wait_for_message(timeout=None, author=None, channel=None, content=None, check=None)
             """ set the players guess to guesses"""
             guesses += guess
             """ incorrect letter"""
