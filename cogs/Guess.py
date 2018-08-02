@@ -66,7 +66,7 @@ class Guess:
             """ exit the script"""
             break              
 
-            print message.content.startswith("
+            print
             if message.content.startswith('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
                 """ ask the user go guess a character"""
                 guess = self.bot.discord.wait_for_message(timeout=None, *, author=None, channel=None, content=None, check=None)
