@@ -30,11 +30,11 @@ class Guess:
         await self.bot.say("Start guessing...(hint: no caps/")
         await asyncio.sleep(0.5)
 
-#make secret
-secret = "its gonna change"
+        #make secret
+        secret = "its gonna change"
 
-"""Probably need to create a word list and grab words from there"""
-items = ["here", "are", "some", "strings", "of","which", "we", "will", 
+        #Probably need to create a word list and grab words from there
+        items = ["here", "are", "some", "strings", "of","which", "we", "will", 
          "select", "one", "two", "three", "four", "five", "six", 
          "seven", "eight", "nine", "ten", "python", "ruby", "java", "javascript", "traceback", "print", 
          "random", "input", "raw", "print", "sleep", "time", "secret", "while", "then", "if", 
@@ -44,57 +44,43 @@ items = ["here", "are", "some", "strings", "of","which", "we", "will",
          "ice", "red", "life", "death", "magic", "comments", "class", "secret", "value", 
          "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn", 
          "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster"]
-"""picks one word from list"""
-secret = items[random.randrange(len(items))]
+        #picks one word from list
+        secret = items[random.randrange(len(items))]
 
-"""creates a variable with an empty value"""
-guesses = ''
+        #creates a variable with an empty value
+        guesses = ''
+        turns = 10
+        while turns > 0:
+            failed = 0
+            for char in secret:
+                if char in guesses:
+                    await self.bot.say(char),
+                else:
+                    await self.bot.say("_"),
+                    failed += 1
+            """ if failed is equal to zero"""
+            """ Win text"""
+            if failed == 0:        
+                await self.bot.reply("You won! Good job! :aquaThumbsUp:")  
+            """ exit the script"""
+                break              
 
+            print
 
-turns = 10
-
-
-while turns > 0:
-    failed = 0
-    for char in secret:
-        if char in guesses:
-            await self.bot.reply(char),
-        else:
-            await self.bot.reply("_"),
-            failed += 1
-    """ if failed is equal to zero"""
-    """ Win text"""
-    if failed == 0:        
-        await self.bot.reply("You won! Good job! :aquaThumbsUp:")  
-
-    """ exit the script"""
-        break              
-
-    print
-
-    """ ask the user go guess a character"""
-    guess = self.bot.discord.wait_for_message() 
-
-    """ set the players guess to guesses"""
-    guesses += guess                    
-
-    """ incorrect letter"""
-    if guess not in secret:  
- 
-     """ turns counter -1"""
-        turns -= 1        
- 
-    """ print wrong"""
-        await self.bot.say("Wrong")    
- 
-    """ number of turns left"""
-        await self.bot.say("You have", + turns, "more guesses") 
- 
-    """ if the turns are equal to zero"""
-        if turns == 0:           
-    
-        """losing text"""
-            await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
+            """ ask the user go guess a character"""
+            guess = self.bot.discord.wait_for_message(content='a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z') 
+            """ set the players guess to guesses"""
+            guesses += guess
+            """ incorrect letter"""
+            if guess not in secret:
+                turns -= 1        
+                await self.bot.say("Wrong")    
+            """ number of turns left"""
+                await self.bot.say("You have", + turns, "more guesses") 
+            """ if the turns are equal to zero"""
+                if turns == 0:           
+            
+                    await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Set-up
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
