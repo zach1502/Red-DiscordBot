@@ -67,14 +67,12 @@ class Guess:
             break              
 
             print
-            if message.content.startswith('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
-                """ ask the user go guess a character"""
-                guess = self.bot.discord.wait_for_message(timeout=None, *, author=None, channel=None, content=None, check=None)
-                """ set the players guess to guesses"""
-                guesses += guess
-                """ incorrect letter"""
-            else:
-                await self.bot.say("lower case letters please~~!")
+            """ ask the user go guess a character"""
+            guess = self.bot.discord.wait_for_message(timeout=None, *, author=None, channel=None, content=None, check=None)
+            """ set the players guess to guesses"""
+            guesses += guess
+            """ incorrect letter"""
+            await self.bot.say("lower case letters please~~!")
             if guess not in secret:
                 turns -= 1        
                 await self.bot.say("Wrong")    
