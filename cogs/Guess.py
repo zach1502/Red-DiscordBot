@@ -63,7 +63,7 @@ class Guess:
             if failed == 0:        
                 await self.bot.reply("You won! Good job! :aquaThumbsUp:")  
             """ exit the script"""
-                break              
+            break              
 
             print
 
