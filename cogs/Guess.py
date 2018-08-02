@@ -76,7 +76,7 @@ class Guess:
                 turns -= 1        
                 await self.bot.say("Wrong")    
             """ number of turns left"""
-                await self.bot.say("You have", + turns, "more guesses") 
+            await self.bot.say("You have", + turns, "more guesses") 
             """ if the turns are equal to zero"""
                 if turns == 0:           
             
