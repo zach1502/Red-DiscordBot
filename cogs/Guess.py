@@ -13,6 +13,7 @@ import discord
 import os
 import asyncio
 import chardet
+import re
 """Guessing game """
 class Guess:
     def __init__(self, bot):
@@ -49,7 +50,7 @@ class Guess:
 
         #creates a variable with an empty value
         guesses = ''
-        turns = 10
+        turns = 5
         while turns > 0:
             failed = 0
             for char in secret:
@@ -66,20 +67,22 @@ class Guess:
             break              
 
             print
-
-            """ ask the user go guess a character"""
-            guess = self.bot.discord.wait_for_message(content='a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z') 
-            """ set the players guess to guesses"""
-            guesses += guess
-            """ incorrect letter"""
-            if guess not in secret:
-                turns -= 1        
-                await self.bot.say("Wrong")    
-            """ number of turns left"""
-            await self.bot.say("You have", + turns, "more guesses") 
-            """ if the turns are equal to zero"""
-            if turns == 0:
-                await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
+            if guess != 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+                await self.bot.say("lower-case letters please~~!")
+            else:
+                """ ask the user go guess a character"""
+                guess = self.bot.discord.wait_for_message(timeout=None, *, author=None, channel=None, content=None, check=None)
+                """ set the players guess to guesses"""
+                guesses += guess
+                """ incorrect letter"""
+                if guess not in secret:
+                    turns -= 1        
+                    await self.bot.say("Wrong")    
+                """ number of turns left"""
+                await self.bot.say("You have", + turns, "more guesses") 
+                """ if the turns are equal to zero"""
+                if turns == 0:
+                    await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Set-up
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
