@@ -5,14 +5,10 @@ import time
 import random
 from discord.ext import commands
 from random import choice
-from .utils.dataIO import dataIO
-from .utils import checks
-from .utils.chat_formatting import box
 from collections import Counter, defaultdict, namedtuple
 import discord
 import os
 import asyncio
-import chardet
 import re
 """Guessing game """
 class Guess:
@@ -52,35 +48,41 @@ class Guess:
         guesses = ''
         turns = 5
         while turns > 0:
-            failed = 0
-            for char in secret:
-                if char in guesses:
-                    await self.bot.say(char),
+            failed = false
+            if failed:
+                for char in secret:
+                    if char in guesses:
+                        await self.bot.say(char),
+                    else:
+                        await self.bot.say("_"),
+                        failed += 1
+                """ if failed is equal to zero"""
+                """ Win text"""
+                if failed == 0:        
+                    await self.bot.say("You won! Good job! :aquaThumbsUp:")  
+                """ exit the script"""
+            
+                break
+            
+                """ ask the user go guess a character"""
+                await self.bot.say("lower case letters please~~!")
+                guess = self.bot.discord.wait_for_message(timeout=None, author=None, channel=None, content=None, check=None)
+                """ set the players guess to guesses"""
+                guesses += guess
+                """ incorrect letter"""
+                if guess not in secret:
+                    turns -= 1        
+                    await self.bot.say("Wrong") 
+                """ if the turns are equal to zero"""
+                if turns == 0:
+                    # losing text
+                    await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
+                    pass
                 else:
-                    await self.bot.say("_"),
-                    failed += 1
-            """ if failed is equal to zero"""
-            """ Win text"""
-            if failed == 0:        
-                await self.bot.reply("You won! Good job! :aquaThumbsUp:")  
-            """ exit the script"""
-            
-            break
-            
-            """ ask the user go guess a character"""
-            await self.bot.say("lower case letters please~~!")
-            guess = self.bot.discord.wait_for_message(timeout=None, author=None, channel=None, content=None, check=None)
-            """ set the players guess to guesses"""
-            guesses += guess
-            """ incorrect letter"""
-            if guess not in secret:
-                turns -= 1        
-                await self.bot.say("Wrong")    
-            """ number of turns left"""
-            await self.bot.say("You have", +turns, "more guesses") 
-            """ if the turns are equal to zero"""
-            if turns == 0:
-                await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
+                    # turns remaining text
+                    await self.bot.say("You have", +turns, "more guesses")
+                    pass
+                    
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Set-up
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
