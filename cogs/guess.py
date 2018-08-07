@@ -1,6 +1,6 @@
-"""importsss (that i don't know if it belongs here)"""
+"""importsss (that i don't know if it belongs here)
 
-"""you can get rid of excess comments"""
+    you can get rid of excess comments"""
 import time
 import random
 from discord.ext import commands
@@ -31,10 +31,10 @@ class Guess:
         await self.bot.say("Start guessing...(hint: no caps/")
         await asyncio.sleep(0.5)
 
-        #make secret
+        # make secret
         secret = "its gonna change"
 
-        #Probably need to create a word list and grab words from there
+        # Probably need to create a word list and grab words from there
         items = ["here", "are", "some", "strings", "of","which", "we", "will", 
          "select", "one", "two", "three", "four", "five", "six", 
          "seven", "eight", "nine", "ten", "python", "ruby", "java", "javascript", "traceback", "print", 
@@ -64,20 +64,20 @@ class Guess:
             if failed == 0:        
                 await self.bot.reply("You won! Good job! :aquaThumbsUp:")  
             """ exit the script"""
-            break              
-
-            print
+            
+            break
+            
             """ ask the user go guess a character"""
+            await self.bot.say("lower case letters please~~!")
             guess = self.bot.discord.wait_for_message(timeout=None, author=None, channel=None, content=None, check=None)
             """ set the players guess to guesses"""
             guesses += guess
             """ incorrect letter"""
-            await self.bot.say("lower case letters please~~!")
             if guess not in secret:
                 turns -= 1        
                 await self.bot.say("Wrong")    
             """ number of turns left"""
-            await self.bot.say("You have", + turns, "more guesses") 
+            await self.bot.say("You have", +turns, "more guesses") 
             """ if the turns are equal to zero"""
             if turns == 0:
                 await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
