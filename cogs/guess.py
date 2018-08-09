@@ -17,14 +17,14 @@ class Guess:
 
     @commands.command(name="guess")
     async def mycom(self):
-        """welcoming the user"""
+        # welcoming the user
         await self.bot.reply("guess what word I'm thinking of!")
 
-        """thinking"""
+        # thinking
         await asyncio.sleep(3)
 
-        """start guess"""
-        await self.bot.say("Start guessing...(hint: no caps/")
+        # start guess
+        await self.bot.say("Start guessing...(hint: no caps)")
         await asyncio.sleep(0.5)
 
         # make secret
@@ -42,24 +42,23 @@ class Guess:
          "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn", 
          "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster"]
         #picks one word from list
-        secret = items[random.randrange(len(items))]
+        secret = random.choice(items)
 
         #creates a variable with an empty value
         guesses = ''
         turns = 5
         while turns > 0:
-            failed = false
-            if failed:
-                for char in secret:
-                    if char in guesses:
-                        await self.bot.say(char),
-                    else:
-                        await self.bot.say("_"),
-                        failed += 1
+            failed = 0
+            for char in secret:
+                if char in guesses:
+                    await self.bot.say(char),
+                else:
+                    await self.bot.say("_"),
+                    failed += 1
                 """ if failed is equal to zero"""
                 """ Win text"""
-                if failed == 0:        
-                    await self.bot.say("You won! Good job! :aquaThumbsUp:")  
+            if failed == 0
+                await self.bot.say("You won! Good job! :aquaThumbsUp:")  
                 """ exit the script"""
             
                 break
@@ -84,10 +83,10 @@ class Guess:
                     pass
                     
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Set-up
+ #Set-up
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#def setup(bot):
-#   if not import random:
-#       raise RuntimeError("Random failed to import")
-#       return
-#   bot.add_cog(Guess(bot))
+def setup(bot):
+   if not import ascyncio:
+       raise RuntimeError("ascyncio failed to import")
+       return
+   bot.add_cog(Guess(bot))
