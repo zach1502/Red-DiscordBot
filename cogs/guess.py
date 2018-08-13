@@ -57,7 +57,7 @@ class Guess:
                     failed += 1
                 """ if failed is equal to zero"""
                 """ Win text"""
-            if failed == 0
+            if failed == 0:
                 await self.bot.say("You won! Good job! :aquaThumbsUp:")  
                 """ exit the script"""
             
