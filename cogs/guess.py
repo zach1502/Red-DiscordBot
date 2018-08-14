@@ -55,32 +55,31 @@ class Guess:
                 else:
                     await self.bot.say("_"),
                     failed += 1
-                """ if failed is equal to zero"""
-                """ Win text"""
+                #if failed is equal to zero
+                # Win text
             if failed == 0:
                 await self.bot.say("You won! Good job! :aquaThumbsUp:")  
-                """ exit the script"""
+                # exit the script"""
             
                 break
-            
-                """ ask the user go guess a character"""
-                await self.bot.say("lower case letters please~~!")
-                guess = self.bot.discord.wait_for_message(timeout=None, author=None, channel=None, content=None, check=None)
-                """ set the players guess to guesses"""
-                guesses += guess
-                """ incorrect letter"""
-                if guess not in secret:
-                    turns -= 1        
-                    await self.bot.say("Wrong") 
-                """ if the turns are equal to zero"""
+            # ask the user go guess a character"""
+            await self.bot.say("lower case letters please~~!")
+            guess = self.bot.discord.wait_for_message(timeout=None, author=None, channel=None, content=None, check=None)
+            # set the players guess to guesses"""
+            guesses += guess
+            # incorrect letter"""
+            if guess not in secret:
+                turns -= 1        
+                await self.bot.say("Wrong") 
+                #if the turns equal to zero
                 if turns == 0:
                     # losing text
                     await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
-                    pass
+                    
                 else:
                     # turns remaining text
                     await self.bot.say("You have", +turns, "more guesses")
-                    pass
+                    
                     
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###
@@ -91,3 +90,4 @@ def setup(bot):
     bot.add_cog(Guess(bot))
 
     
+#dab xd oof indents 
