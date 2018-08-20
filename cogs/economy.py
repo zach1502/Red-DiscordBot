@@ -91,11 +91,11 @@ PAYOUTS = {
         "phrase" : "Two cherries! Your bid has been multiplied * 4!"
     },
     "3 symbols" : {
-        "payout" : lambda x: x * 2.5 + x,
+        "payout" : lambda x: x * 3 + x,
         "phrase" : "Three symbols! Your bid has been multiplied * 2.5!"
     },
     "2 symbols" : {
-        "payout" : lambda x: x * 1.5 + x,
+        "payout" : lambda x: x * 2 + x,
         "phrase" : "Two consecutive symbols! Your bid has been multiplied!"
     },
 }
