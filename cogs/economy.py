@@ -123,6 +123,7 @@ class Bank:
                 self.accounts[server.id] = {}
             if user.id in self.accounts:  # Legacy account
                 balance = self.accounts[user.id]["balance"]
+                int(balance)
             else:
                 balance = initial_balance
             timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
