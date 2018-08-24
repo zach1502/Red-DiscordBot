@@ -74,7 +74,7 @@ class Guess:
                 #if the turns equal to zero
                 if turns == 0:
                     # losing text
-                    await self.bot.say("You Lost" + ", " +str(secret), "was the right word")
+                    await self.bot.say("You Lost, " +str(secret), " was the right word")
                     
                 else:
                     # turns remaining text
