@@ -31,7 +31,7 @@ class Guess:
         secret = "its gonna change"
 
         # Probably need to create a word list and grab words from there
-        items = ["here", "are", "some", "strings", "of","which", "we", "will", 
+        items = ["here", "are", "some", "strings", "of", "which", "we", "will", 
          "select", "one", "two", "three", "four", "five", "six", 
          "seven", "eight", "nine", "ten", "python", "ruby", "java", "javascript", "traceback", "print", 
          "random", "input", "raw", "print", "sleep", "time", "secret", "while", "then", "if", 
@@ -40,7 +40,9 @@ class Guess:
          "jolly", "ranch", "lit", "still", "first", "second", "third", "skull", "ketchup", 
          "ice", "red", "life", "death", "magic", "comments", "class", "secret", "value", 
          "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn", 
-         "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster"]
+         "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster", "hash", "secure", "magical", "never", "public",
+         "private", "key", "encryption", "cypher", "cryptogram", "theory", "open", "thread", "ripper", "core", "graphical", "graphics",
+         "asymmetrical", "symmetrical"]
         # picks one word from list
         secret = random.choice(items)
 
@@ -81,13 +83,13 @@ class Guess:
                     await self.bot.say("You have {0} more guesses".format(turns))
                     
                     
-#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###                           å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ
-#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# # # Set-up # # #     # # # Set-up # # #    # # # Set-up # # #    # # # Set-up # # #    # # # Set-up # # #    # # # Set-up # # #    # # # Set-up # # #    # # # Set-up # # #                           å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def setup(bot):
     check_folders()
     check_files()
     bot.add_cog(Guess(bot))
 
     
-#dab xd oof indents 
+# dab xd oof indents 
