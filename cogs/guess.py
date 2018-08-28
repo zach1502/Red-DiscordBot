@@ -15,7 +15,7 @@ class Guess:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="guess")
+    @commands.command(name="guess", pass_context = True)
     async def mycom(self):
         # welcoming the user
         await self.bot.reply("guess what word I'm thinking of!")
@@ -41,10 +41,10 @@ class Guess:
          "ice", "red", "life", "death", "magic", "comments", "class", "secret", "value", 
          "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn", 
          "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster"]
-        #picks one word from list
+        # picks one word from list
         secret = random.choice(items)
 
-        #creates a variable with an empty value
+        # creates a variable with an empty value
         guesses = ''
         turns = 5
         while turns > 0:
@@ -64,8 +64,8 @@ class Guess:
                 break
             # ask the user go guess a character"""
             await self.bot.say("lower case letters please~~!")
-            guess = self.bot.discord.wait_for_message(timeout=None, author=None, channel=None, content=None, check=None)
-            # set the players guess to guesses"""
+            guess = self.bot.discord.wait_for_message(channel = context.message.channel)
+            # add to the player(s) guess to guesses"""
             guesses += guess
             # incorrect letter"""
             if guess not in secret:
@@ -74,15 +74,15 @@ class Guess:
                 #if the turns equal to zero
                 if turns == 0:
                     # losing text
-                    await self.bot.say("You Lost, " +str(secret), " was the right word")
+                    await self.bot.say("You Lost, {0}  was the right word".format(secret))
                     
                 else:
                     # turns remaining text
-                    await self.bot.say("You have", +turns, "more guesses")
+                    await self.bot.say("You have {0} more guesses".format(turns))
                     
                     
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###
+###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###    ###Set-up###                           å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ¨®ß†¨√∑≈¥Ω å∫ç∂´ƒ©˙ˆ
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def setup(bot):
     check_folders()
