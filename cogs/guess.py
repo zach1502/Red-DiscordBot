@@ -25,6 +25,7 @@ class Guess:
 
         # start guess
         await self.bot.say("Start guessing...(hint: no caps)")
+        await self.bot.say("you have 30 seconds to make a guess")
         await asyncio.sleep(0.5)
 
         # make secret
@@ -67,6 +68,13 @@ class Guess:
             # ask the user go guess a character"""
             await self.bot.say("lower case letters please~~!")
             guess = self.bot.discord.wait_for_message(channel = context.message.channel)
+            
+            
+            while guess = None:
+                await asyncio.sleep(30)
+                await self.bot.say("I'm just going to assume you're gone...You think too slowly")
+                break
+                
             # add to the player(s) guess to guesses"""
             guesses += guess
             # incorrect letter"""
