@@ -70,7 +70,7 @@ class Guess:
             guess = self.bot.discord.wait_for_message(channel = context.message.channel)
             
             
-            while guess = None:
+            while guess == None:
                 await asyncio.sleep(30)
                 await self.bot.say("I'm just going to assume you're gone...You think too slowly")
                 break
