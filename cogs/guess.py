@@ -5,15 +5,16 @@ import random
 import asyncio
 from discord.ext import commands
 
-class Guess:
+class Guess: # pylint: disable=too-few-public-methods fekkin pylint
     '''this is guessing game'''
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command(name="guess", pass_context=True)
     async def mycom(self):
-        '''pylint told me to do this'''
+        '''pylint told me to do this, this will start a guessing game :aquaThumbsUp:'''
         # welcoming the user
+        async def mycom(self,context):
         await self.bot.reply("guess what word I'm thinking of!")
 
         # thinking
@@ -86,7 +87,7 @@ class Guess:
 
 # --------------------------------------------------------------------------------------------------
 # # # Set-up # # # No U Pylint cogs/pylint.py:90:0: C0301: Line too long (101/100) (line-too-long)
-# --------------------------------------------------------------------------------------------------
+# --------------------------------------Fekkin pylint-----------------------------------------------
 def setup(bot):
     '''pylint also told me to do this'''
     bot.add_cog(Guess(bot))
