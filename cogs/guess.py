@@ -5,7 +5,10 @@ import random
 import asyncio
 from discord.ext import commands
 
-class Guess: # pylint: disable=too-few-public-methods fekkin pylint
+class Guess: # pylint: disable=too-few-public-methods
+    # fekkin pylint 
+    # E0012: Bad option value 'too-few-public-methods fekkin pylint' (bad-option-value)
+    # cogs/guess.py:8:0: R0903: Too few public methods (1/2) (too-few-public-methods)
     '''this is guessing game'''
     def __init__(self, bot):
         self.bot = bot
