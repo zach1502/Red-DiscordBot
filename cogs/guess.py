@@ -2,9 +2,7 @@
 
     you can get rid of excess comments"""
 import random
-import os
 import asyncio
-import re
 from discord.ext import commands
 
 class Guess:
@@ -32,12 +30,12 @@ class Guess:
         # Probably need to create a word list and grab words from there
         items = ["here", "are", "some", "strings", "of", "which", "we", "will", "select", "one",
                  "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "python",
-                 "ruby", "java", "javascript", "traceback", "print", "random", "input", "raw", 
-                 "print", "sleep", "time", "secret", "while", "then", "if", "loop", "in", "else", 
-                 "break", "empty", "mocha", "matcha", "money", "spam", "jazz", "jam", "spaz", 
+                 "ruby", "java", "javascript", "traceback", "print", "random", "input", "raw",
+                 "print", "sleep", "time", "secret", "while", "then", "if", "loop", "in", "else",
+                 "break", "empty", "mocha", "matcha", "money", "spam", "jazz", "jam", "spaz",
                  "binder", "jokes", "chemistry", "person", "matcha", "night", "everyone", "pasta",
-                 "craving", "jolly", "ranch", "lit", "still", "first", "second", "third", "skull", 
-                 "ketchup","ice", "red", "life", "death", "magic", "comments", "class", "secret", 
+                 "craving", "jolly", "ranch", "lit", "still", "first", "second", "third", "skull",
+                 "ketchup", "ice", "red", "life", "death", "magic", "comments", "class", "secret",
                  "value", "variable", "guess", "incorrect", "russian", "roulette", "bot", "turn",
                  "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster",
                  "hash", "secure", "magical", "never", "public", "private", "key", "encryption",
@@ -61,7 +59,7 @@ class Guess:
                 # Win text
             if failed == 0:
                 await self.bot.say("You won! Good job! :aquaThumbsUp:")
-                # exit the script"""      
+                # exit the script"""
                 break
             # ask the user go guess a character"""
             await self.bot.say("lower case letters please~~!")
@@ -80,16 +78,17 @@ class Guess:
                 if turns == 0:
                     # losing text
                     await self.bot.say("You Lost, {0}  was the right word".format(secret))
-                    
+
                 else:
                     # turns remaining text
                     await self.bot.say("You have {0} more guesses".format(turns))
-                    
-                    
+
+
 # --------------------------------------------------------------------------------------------------
-# # # Set-up # # #     # # # Set-up # # #    # # # Set-up # # #    # # # Set-up # # #    # # # Set-up
+# # # Set-up # # # No U Pylint cogs/pylint.py:90:0: C0301: Line too long (101/100) (line-too-long)
 # --------------------------------------------------------------------------------------------------
 def setup(bot):
+    '''pylint also told me to do this'''
     bot.add_cog(Guess(bot))
 
 # dab xd oof indents
