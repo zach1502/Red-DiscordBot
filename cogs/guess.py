@@ -6,7 +6,7 @@ import asyncio
 from discord.ext import commands
 
 class Guess: # pylint: disable=too-few-public-methods
-    # fekkin pylint 
+    # fekkin pylint cogs/guess.py:9:19: C0303: Trailing whitespace (trailing-whitespace)
     # E0012: Bad option value 'too-few-public-methods fekkin pylint' (bad-option-value)
     # cogs/guess.py:8:0: R0903: Too few public methods (1/2) (too-few-public-methods)
     '''this is guessing game'''
