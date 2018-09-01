@@ -11,7 +11,7 @@ class Guess: # pylint: disable=too-few-public-methods fekkin pylint
         self.bot = bot
 
     @commands.command(name="guess", pass_context=True)
-    async def mycom(self, context)):
+    async def mycom(self, context):
         '''pylint told me to do this, this will start a guessing game :aquaThumbsUp:'''
         # welcoming the user
         await self.bot.reply("guess what word I'm thinking of!")
