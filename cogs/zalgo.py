@@ -30,7 +30,7 @@ class Zalgo:
         
         if len(text) >= 1000:
             await self.bot.say(random.choice(list)) # noticed choice wasn't being used so i'm gonna use it
-            break
+                break
         else:
             fw = text.split()[0]
             try:
