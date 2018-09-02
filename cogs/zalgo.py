@@ -22,25 +22,37 @@ class Zalgo:
 
     @commands.command()
     async def zalgo(self, *, text: str):
-        fw = text.split()[0]
-        try:
-            amount = min(int(fw), ZALGO_MAX_AMT)
-            text = text[len(fw):].strip()
-        except ValueError:
-            amount = ZALGO_DEFAULT_AMT
-        text = self.zalgoify(text.upper(), amount)
-        await self.bot.say(text)
+        list = ["Really? this is over 1000 letters long!", "Hmmm... Are you trying to launch a DOS attack?",
+                "I can't proccess this much data, I'm on an Intel 4004", "This is longer than my Thesis...",
+                "This is worse than if someone launched a Low Orbit Ion Cannon at me, keep your message shorter",
+                "```Error 404: keep your message shorter```", "I'm out of RAM, keep your message shorter so i can process this",
+                "You know, Discord has a limit of 2k characters, you just exceeded half of that, keep it shorter please"]
+        
+        if len(text) >= 1000:
+            await self.bot.say(random.choice(list)) # noticed choice wasn't being used so i'm gonna use it
+            break
+        else:
+            fw = text.split()[0]
+            try:
+                amount = min(int(fw), ZALGO_MAX_AMT)
+                text = text[len(fw):].strip()
+            except ValueError:
+                amount = ZALGO_DEFAULT_AMT
+            text = self.zalgoify(text.upper(), amount)
+            await self.bot.say(text)
 
-    def zalgoify(self, text, amount=3):
-        zalgo_text = ''
-        for c in text:
-            zalgo_text += c
-            if c != ' ':
-                for t, range in ZALGO_PARAMS.items():
-                    range = (round(x*amount/5) for x in range)
-                    n = min(randint(*range), len(ZALGO_CHARS[t]))
-                    zalgo_text += ''.join(sample(ZALGO_CHARS[t], n))
-        return zalgo_text
+        def zalgoify(self, text, amount=3):
+            zalgo_text = ''
+            for c in text:
+                zalgo_text += c
+                if c != ' ':
+                    for t, range in ZALGO_PARAMS.items():
+                        range = (round(x*amount/5) for x in range)
+                        n = min(randint(*range), len(ZALGO_CHARS[t]))
+                        zalgo_text += ''.join(sample(ZALGO_CHARS[t], n))
+            return zalgo_text
+        
+#set up
 
 def setup(bot):
     n = Zalgo(bot)
