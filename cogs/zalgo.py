@@ -1,4 +1,4 @@
-'''pylint told me to put something here'''
+
 from random import randint, sample
 from discord.ext import commands
 
@@ -28,13 +28,11 @@ ZALGO_CHARS = {
 }
 
 class Zalgo:
-    '''pylint told me to do this'''
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
     async def zalgo(self, *, text: str):
-        '''pylint told me to do this, This will "zalgofy" your text :aquaThumbsUp:'''
         if len(text) >= 1000:
             await self.bot.say("You know, Discord has a limit of 2k characters, you just exceeded half of that, keep it shorter please")
         else:
