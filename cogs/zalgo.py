@@ -28,18 +28,18 @@ class Zalgo:
                 "```Error 404: keep your message shorter```", "I'm out of RAM, keep your message shorter so i can process this",
                 "You know, Discord has a limit of 2k characters, you just exceeded half of that, keep it shorter please"]
         
-        if len(text) >= 1000:
+        while len(text) >= 1000:
             await self.bot.say(random.choice(list)) # noticed choice wasn't being used so i'm gonna use it
-                break
-        else:
-            fw = text.split()[0]
-            try:
-                amount = min(int(fw), ZALGO_MAX_AMT)
-                text = text[len(fw):].strip()
-            except ValueError:
-                amount = ZALGO_DEFAULT_AMT
-            text = self.zalgoify(text.upper(), amount)
-            await self.bot.say(text)
+            break
+        
+        fw = text.split()[0]
+        try:
+            amount = min(int(fw), ZALGO_MAX_AMT)
+            text = text[len(fw):].strip()
+        except ValueError:
+            amount = ZALGO_DEFAULT_AMT
+        text = self.zalgoify(text.upper(), amount)
+        await self.bot.say(text)
 
         def zalgoify(self, text, amount=3):
             zalgo_text = ''
@@ -51,9 +51,9 @@ class Zalgo:
                         n = min(randint(*range), len(ZALGO_CHARS[t]))
                         zalgo_text += ''.join(sample(ZALGO_CHARS[t], n))
             return zalgo_text
-        
-#set up
-
+# -----------------------------------------------------------------------------------------
+# set up
+# -----------------------------------------------------------------------------------------
 def setup(bot):
     n = Zalgo(bot)
     bot.add_cog(n)
