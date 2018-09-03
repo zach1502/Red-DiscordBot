@@ -68,6 +68,7 @@ ignore=alias.py,
        wikipedia.py,
        wolfram.py,
        word_filter.py,
+       zalgo.py,
    	   utils
 
 # Add files or directories matching the regex patterns to the blacklist. The
