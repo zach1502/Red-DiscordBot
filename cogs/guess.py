@@ -26,7 +26,7 @@ class Guess: # pylint: disable=too-few-public-methods
         secret = "its gonna change"
 
         # Probably need to create a word list and grab words from there
-        items = ["here", "are", "some", "strings", "of", "which", "we", "will", "select", "one",
+        items = ["here", "are", "some", "strings", "of", "which", "we", "select", "one", "or"
                  "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "python",
                  "ruby", "java", "javascript", "traceback", "print", "random", "input", "raw",
                  "print", "sleep", "time", "secret", "while", "then", "if", "loop", "in", "else",
@@ -38,7 +38,8 @@ class Guess: # pylint: disable=too-few-public-methods
                  "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster",
                  "hash", "secure", "magical", "never", "public", "private", "key", "encryption",
                  "cypher", "cryptogram", "theory", "open", "thread", "ripper", "core", "graphical",
-                 "graphics", "asymmetrical", "symmetrical"]
+                 "graphics", "asymmetrical", "symmetrical", "make", "squid", "pie", "command", "real",
+                 "please", "will", "create", "best", "commands", "aqua", "thumbs", "up"]
         # picks one word from list
         secret = random.choice(items)
 
@@ -61,8 +62,7 @@ class Guess: # pylint: disable=too-few-public-methods
                 break
             # ask the user go guess a character"""
             await self.bot.say("lower case letters please~~!")
-            guess = self.bot.wait_for_message(channel=context.message.channel)
-            timeout=30
+            guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
             if not guess:
                 await self.bot.say("I'm just going to assume you're gone...You think too slowly")
                 return
@@ -86,7 +86,7 @@ class Guess: # pylint: disable=too-few-public-methods
 # # # Set-up # # # # # # Set-up # # # # # # Set-up # # # # # # Set-up # # #  #make squid pie a thing
 # --------------------------------------Fekkin pylint-----------------------------------------------
 def setup(bot):
-    '''pylint also told me to do this'''
+    '''some setup'''
     bot.add_cog(Guess(bot))
 
 # dab xd oof indents
@@ -98,7 +98,7 @@ def setup(bot):
 # E0012: Bad option value 'too-few-public-methods fekkin pylint' (bad-option-value)
 # cogs/guess.py:8:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 # No U Pylint cogs/pylint.py:90:0: C0301: Line too long (101/100) (line-too-long)
-# don't worry injabie, these will be removed when it's in testing
+# don't worry Injabie, these will be removed when it's in testing
 
 
-# .....probably
+# .....probably (just remind me, if you remember that is)
