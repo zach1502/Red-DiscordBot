@@ -38,8 +38,9 @@ class Guess: # pylint: disable=too-few-public-methods
                  "failed", "wood", "stone", "cobblestone", "blanket", "ore", "chest", "poster",
                  "hash", "secure", "magical", "never", "public", "private", "key", "encryption",
                  "cypher", "cryptogram", "theory", "open", "thread", "ripper", "core", "graphical",
-                 "graphics", "asymmetrical", "symmetrical", "make", "squid", "pie", "command", "real",
-                 "please", "will", "create", "best", "commands", "aqua", "thumbs", "up"]
+                 "graphics", "asymmetrical", "symmetrical", "make", "squid", "pie", "command",
+                 "real", "please", "will", "create", "best", "commands", "and", "great", "ideas",
+                 "do", "it", "for", "the", "people", "colon", "aqua", "thumbs", "up"]
         # picks one word from list
         secret = random.choice(items)
 
@@ -99,6 +100,6 @@ def setup(bot):
 # cogs/guess.py:8:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 # No U Pylint cogs/pylint.py:90:0: C0301: Line too long (101/100) (line-too-long)
 # don't worry Injabie, these will be removed when it's in testing
-
+# cogs/guess.py:41:0: C0301: Line too long (102/100) (line-too-long)
 
 # .....probably (just remind me, if you remember that is)
