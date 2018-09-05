@@ -1,21 +1,16 @@
-"""importsss (that i don't know if it belongs here)
-
-    you can get rid of excess comments"""
+'''a fun little guessing game'''
 import random
 import asyncio
 from discord.ext import commands
 
 class Guess: # pylint: disable=too-few-public-methods
-    # fekkin pylint cogs/guess.py:9:19: C0303: Trailing whitespace (trailing-whitespace)
-    # E0012: Bad option value 'too-few-public-methods fekkin pylint' (bad-option-value)
-    # cogs/guess.py:8:0: R0903: Too few public methods (1/2) (too-few-public-methods)
     '''this is guessing game'''
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command(name="guess", pass_context=True)
     async def mycom(self, context):
-        '''pylint told me to do this, this will start a guessing game :aquaThumbsUp:'''
+        '''this will start a guessing game, kinda like hangman. '''
         # welcoming the user
         await self.bot.reply("guess what word I'm thinking of!")
 
@@ -67,10 +62,10 @@ class Guess: # pylint: disable=too-few-public-methods
             # ask the user go guess a character"""
             await self.bot.say("lower case letters please~~!")
             guess = self.bot.wait_for_message(channel=context.message.channel)
-            while not guess:
-                await asyncio.sleep(30)
+            timeout=30
+            if not guess:
                 await self.bot.say("I'm just going to assume you're gone...You think too slowly")
-                break
+                return
             # add to the player(s) guess to guesses"""
             guesses += guess
             # incorrect letter"""
@@ -88,10 +83,18 @@ class Guess: # pylint: disable=too-few-public-methods
 
 
 # --------------------------------------------------------------------------------------------------
-# # # Set-up # # # No U Pylint cogs/pylint.py:90:0: C0301: Line too long (101/100) (line-too-long)
+# # # Set-up # # # # # # Set-up # # # # # # Set-up # # # # # # Set-up # # #  #make squid pie a thing
 # --------------------------------------Fekkin pylint-----------------------------------------------
 def setup(bot):
     '''pylint also told me to do this'''
     bot.add_cog(Guess(bot))
 
 # dab xd oof indents
+
+
+
+# fekkin pylint moments
+# cogs/guess.py:9:19: C0303: Trailing whitespace (trailing-whitespace)
+# E0012: Bad option value 'too-few-public-methods fekkin pylint' (bad-option-value)
+# cogs/guess.py:8:0: R0903: Too few public methods (1/2) (too-few-public-methods)
+# No U Pylint cogs/pylint.py:90:0: C0301: Line too long (101/100) (line-too-long)
