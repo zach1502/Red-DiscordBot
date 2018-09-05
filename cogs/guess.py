@@ -98,3 +98,7 @@ def setup(bot):
 # E0012: Bad option value 'too-few-public-methods fekkin pylint' (bad-option-value)
 # cogs/guess.py:8:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 # No U Pylint cogs/pylint.py:90:0: C0301: Line too long (101/100) (line-too-long)
+# don't worry injabie, these will be removed when it's in testing
+
+
+# .....probably
