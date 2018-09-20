@@ -4,60 +4,84 @@ import asyncio
 from discord.ext import commands
 
 
-GuessesTaken = 0
 
-class Guess:
+class NumbGuess:
 	'''this is a number guessing game'''
 	def __init__(self, bot):
 		self.bot = bot
 	@commands.command(name="numguess", pass_context=True)
 	async def mycom(self, context):
-		'''this will start a number guessing game'''
+	    '''this will start a number guessing game'''
+	    GuessesTaken = 0
+	    await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
+	    mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+	    if mode == 'easy':
+		number = random.randint(1, 10)
 
-		await self.bot.reply("how hard would you like the number game to be? easy/med/hard")
-		mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-		if mode == 'easy':
-			number = random.randint(1, 10)
+	    elif mode == 'mid':
+		number = random.randint(1,50)
 
-		elif mode == 'med':
-			number = random.randint(1,50)
+	    elif mode == 'hard':
+		number = random.randint(1,100)
 
-		elif mode == 'hard':
-			number = random.randint(1,100)
+	    #easter egg
+	    elif mode == 'no u':
+		number = random.randint(1,420)
+		await self.bot.say('no u')
+	    else:
+		await self.bot.say('type again')
+                while True:
+                    if mode == 'easy' or mode == 'mid' or mode == 'hard' or mode == 'no u':
+                        break
+                    else:
+			mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+			continue
 
-		#easter egg
-		elif mode == 'no u':
-			number = randome.randint(1,420)
-			await self.bot.say('no u')
 
-		else:
-			await self.bot.say('type again')
-			return
+	    await self.bot.say('I am thinking of a number between 1 and 100.')
+	    while guessesTaken != 5:
 
-		await self.bot.say('I am thinking of a number between 1 and 100.')
-		while guessesTaken != 5:
+  		await self.bot.say('Take a guess.')
+  		guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+  		if not guess:
+  		    await self.bot.say('you think too slowly, I am going to leave now...')
+  		    return
 
-  			await self.bot.say('Take a guess.')
-  			guess = self.bot.wait_for_message(channel=context.message.channel, timeout = 30)
-  			if not guess:
-  				await self.bot.say('you think too slowly, imma just leave now')
-  				return
-  			
-  			guess = int(guess)
-  			guessesTaken = guessesTaken + 1
+  		while True:
+		    try:
+			guess = int(guess)
+		    except ValueError:
+			await self.bot.say('That\'s no a number, type in a number please')
+			guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+			continue
+  		guessesTaken = guessesTaken + 1
 
-  			if guess < number:
-    			    print('Your guess is too low.')
+  		if guess < number:
+    		    await self.bot.say('Your guess is too low.')
 
-  			if guess > number:
-    			    print('Your guess is too high.')
-    		
-  			if guess == number:
-    			    break
-    		
-		if guess == number:
-			guessesTaken = str(guessesTaken)
-			print('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
-		if guess != number:
-  			number = str(number)
-  			print('Nope. The number I was thinking of was ' + number)
+  		if guess > number:
+    		    await self.bot.say('Your guess is too high.')
+
+  		if guess == number:
+    		    break
+
+	     if guess == number:
+		    guessesTaken = str(guessesTaken)
+		    print('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
+	     if guess != number:
+  		    number = str(number)
+  		    print('Nope. The number I was thinking of was ' + number)
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#-  _________       __   ____ ___           #
+#- /   _____/ _____/  |_|    |   \______    # Ascii Art Haiku:
+#- \_____  \_/ __ \   __\    |   /\____ \   #
+#- /        \  ___/|  | |    |  / |  |_> |  # "Ascii art is fun
+#-/_______  /\___  >__| |______/  |   __/   # I spend too much time on this
+#-        \/     \/               |__|      # but it's very fun"
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#        -zach1502
+
+def setup(bot):
+    bot.add_cog(NumbGuess(bot))
+
+#fekkin pylint: 35 instances of "Found indentation with tabs instead of spaces (mixed-indentation)"
