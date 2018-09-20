@@ -16,17 +16,17 @@ class Guess:
 
 		await self.bot.reply("how hard would you like the number game to be? easy/med/hard")
 		mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-		if mode = 'easy':
+		if mode == 'easy':
 			number = random.randint(1, 10)
 
-		elif mode = 'med':
+		elif mode == 'med':
 			number = random.randint(1,50)
 
-		elif mode = 'hard':
+		elif mode == 'hard':
 			number = random.randint(1,100)
 
 		#easter egg
-		elif mode = 'no u:
+		elif mode == 'no u:
 			number = randome.randint(1,420)
 			await self.bot.say('no u')
 
