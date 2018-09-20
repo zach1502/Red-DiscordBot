@@ -26,7 +26,7 @@ class Guess:
 			number = random.randint(1,100)
 
 		#easter egg
-		elif mode == 'no u:
+		elif mode == 'no u':
 			number = randome.randint(1,420)
 			await self.bot.say('no u')
 
