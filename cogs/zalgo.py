@@ -46,7 +46,7 @@ class Zalgo:
             await self.bot.say(text)
 
     def zalgoify(self, text, amount=3):
-        '''do i really need a docstring here pylint?'''
+        '''This will zalgoify your text'''
         zalgo_text = ''
         for c in text:
             zalgo_text += c
@@ -58,7 +58,7 @@ class Zalgo:
         return zalgo_text
 
 def setup(bot):
-    '''do I really need a Docstring here?'''
+    '''set up'''
     n = Zalgo(bot) # pylint: disable=invalid-name
     bot.add_cog(n)
     # fekkin pylint
