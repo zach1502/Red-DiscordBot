@@ -16,7 +16,7 @@ class NumbGuess:
 	    await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
 	    mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
             if mode == 'easy':
-                number = random.randint(1, 10)
+                number = random.randint(1,10)
 
 	    elif mode == 'mid':
 		number = random.randint(1,50)
