@@ -38,7 +38,7 @@ class Guess:
 		while guessesTaken != 5:
 
   			await self.bot.say('Take a guess.')
-  			guess = self.bot.wait_for_message(channel=context.message.channel, timeout 30)
+  			guess = self.bot.wait_for_message(channel=context.message.channel, timeout = 30)
   			if not guess:
   				await self.bot.say('you think too slowly, imma just leave now')
   				return
