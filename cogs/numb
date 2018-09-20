@@ -13,7 +13,7 @@ class Guess:
 	@commands.command(name="numguess", pass_context=True)
 	async def mycom(self, context):
 		'''this will start a number guessing game'''
-\
+
 		await self.bot.reply("how hard would you like the number game to be? easy/med/hard")
 		mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 		if mode = "easy":
