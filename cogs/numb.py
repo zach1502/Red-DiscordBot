@@ -15,7 +15,7 @@ class NumbGuess:
 	    GuessesTaken = 0
 	    await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
 	    mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-			if mode == 'easy':
+            if mode == 'easy':
                 number = random.randint(1,10)
 
 	    elif mode == 'mid':
@@ -32,12 +32,15 @@ class NumbGuess:
 		await self.bot.say('type again')
                 while True:
                     try:
-			num1 = int(input("Enter first number: "))
+			guess = int(guess)
                     except ValueError:
 			await self.bot.say('type again')
 			continue
                     else:
-			break
+			if mode = None:
+                            await self.bot.say('you think too slowly, I am going to leave now...')
+			else:
+                            continue
 
 	    await self.bot.say('I am thinking of a number between 1 and 100.')
 	    while guessesTaken != 5:
