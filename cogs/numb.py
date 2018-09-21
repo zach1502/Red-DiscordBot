@@ -40,7 +40,7 @@ class NumbGuess:
 			else:
                             continue
 
-	    await self.bot.say('I am thinking of a number between 1 and 100.')
+	    await self.bot.say('I am thinking of a number between 1 and 100. You have 30 seconds.')
 	    while guessesTaken != 5:
 
   		await self.bot.say('Take a guess.')
