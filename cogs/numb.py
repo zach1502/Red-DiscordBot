@@ -52,7 +52,7 @@ class NumbGuess:
 		    try:
 			guess = int(guess)
 		    except ValueError:
-			await self.bot.say('That\'s no a number, type in a number please')
+			await self.bot.say('That\'s not a number, type in a number please')
 			guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 			continue
   		guessesTaken = guessesTaken + 1
