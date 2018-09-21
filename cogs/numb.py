@@ -15,7 +15,7 @@ class NumbGuess:
 	    GuessesTaken = 0
 	    await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
 	    mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-            if mode == 'easy': # pylint: disable=syntax-error
+			if mode == 'easy':
                 number = random.randint(1,10)
 
 	    elif mode == 'mid':
@@ -24,19 +24,20 @@ class NumbGuess:
 	    elif mode == 'hard':
 		number = random.randint(1,100)
 
-	    #easter egg
+	    #easter egg in honor of rennou, 172 uses before removal, number 1 most used rencc
 	    elif mode == 'no u':
 		number = random.randint(1,420)
 		await self.bot.say('no u')
 	    else:
 		await self.bot.say('type again')
                 while True:
-                    if mode == 'easy' or mode == 'mid' or mode == 'hard' or mode == 'no u':
-                        break
-                    else:
-			mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+                    try:
+			num1 = int(input("Enter first number: "))
+                    except ValueError:
+			await self.bot.say('type again')
 			continue
-
+                    else:
+			break
 
 	    await self.bot.say('I am thinking of a number between 1 and 100.')
 	    while guessesTaken != 5:
