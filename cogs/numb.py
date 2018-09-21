@@ -18,26 +18,26 @@ class NumbGuess:
             if mode == 'easy'
                 number = random.randint(1,10)
             elif mode == 'mid':
-		number = random.randint(1,50)
+                number = random.randint(1,50)
             elif mode == 'hard':
-		number = random.randint(1,100)
+                number = random.randint(1,100)
 
             #easter egg in honor of rennou, 172 uses before removal, number 1 most used rencc
             elif mode == 'no u':
-		number = random.randint(1,420)
-		await self.bot.say('no u')
+                number = random.randint(1,420)
+                await self.bot.say('no u')
             else:
-		await self.bot.say('type again')
+                await self.bot.say('type again')
                 while True:
                     try:
-			guess = int(guess)
+                        guess = int(guess)
                     except ValueError:
-			await self.bot.say('type again')
-			continue
+                        await self.bot.say('type again')
+                        continue
                     else:
-			if mode = None:
+                        if mode = None:
                             await self.bot.say('you think too slowly, I am going to leave now...')
-			else:
+                        else:
                             continue
 
 	    await self.bot.say('I am thinking of a number between 1 and 100. You have 30 seconds.')
@@ -69,10 +69,11 @@ class NumbGuess:
 
 	     if guess == number:
 		    guessesTaken = str(guessesTaken)
-		    print('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
+		    await self.bot.say('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
+
 	     if guess != number:
   		    number = str(number)
-  		    print('Nope. The number I was thinking of was ' + number)
+  		    await self.bot.say('Nope. The number I was thinking of was ' + number)
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #-  _________       __   ____ ___           #
