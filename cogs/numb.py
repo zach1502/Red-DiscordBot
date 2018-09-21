@@ -14,21 +14,19 @@ class NumbGuess:
 	    '''this will start a number guessing game'''
 	    GuessesTaken = 0
 	    await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
-	    mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-            if mode == 'easy':
+            mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+            if mode == 'easy'
                 number = random.randint(1,10)
-
-	    elif mode == 'mid':
+            elif mode == 'mid':
 		number = random.randint(1,50)
-
-	    elif mode == 'hard':
+            elif mode == 'hard':
 		number = random.randint(1,100)
 
-	    #easter egg in honor of rennou, 172 uses before removal, number 1 most used rencc
-	    elif mode == 'no u':
+            #easter egg in honor of rennou, 172 uses before removal, number 1 most used rencc
+            elif mode == 'no u':
 		number = random.randint(1,420)
 		await self.bot.say('no u')
-	    else:
+            else:
 		await self.bot.say('type again')
                 while True:
                     try:
