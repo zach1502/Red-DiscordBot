@@ -40,7 +40,7 @@ class NumbGuess:
                 await self.bot.say('type again')
                 continue
             else:
-                if mode = None:
+                if mode == None:
                     await self.bot.say('you think too slowly, I am going to leave now...')
                 else:
                     continue
