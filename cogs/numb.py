@@ -29,21 +29,25 @@ class NumbGuess:
         elif mode == 'no u':
             number = random.randint(1,420)
             await self.bot.say('no u')
+        
+        elif mode == None:
+            await self.bot.say('you think too slowly, I am going to leave now...')
+            break
 
         else:
             await self.bot.say('type again')
+            mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 
         while True:
             try:
-                guess = int(guess)
+                mode != 'easy' or 'mid' or 'hard' or 'no u'
+                raise ValueError
             except ValueError:
                 await self.bot.say('type again')
+                mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
                 continue
             else:
-                if mode == None:
-                    await self.bot.say('you think too slowly, I am going to leave now...')
-                else:
-                    continue
+                continue
 
         await self.bot.say('I am thinking of a number between 1 and 100. You have 30 seconds.')
         while guessesTaken != 5:
@@ -56,23 +60,23 @@ class NumbGuess:
 
           while True:
             try:
-            guess = int(guess)
+                guess = int(guess)
             except ValueError:
-            await self.bot.say('That\'s not a number, type in a number please')
-            guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-            continue
+                await self.bot.say('That\'s not a number, type in a number please')
+                guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+                continue
           guessesTaken = guessesTaken + 1
 
           if guess < number:
-                await self.bot.say('Your guess is too low.')
+              await self.bot.say('Your guess is too low.')
 
           if guess > number:
-                await self.bot.say('Your guess is too high.')
+              await self.bot.say('Your guess is too high.')
 
           if guess == number:
-                break
+              break
 
-         if guess == number:
+          if guess == number:
             guessesTaken = str(guessesTaken)
             await self.bot.say('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
 
