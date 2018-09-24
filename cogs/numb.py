@@ -77,10 +77,10 @@ class NumbGuess:
               break
 
           if guess == number:
-            guessesTaken = str(guessesTaken)
-            await self.bot.say('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
+              guessesTaken = str(guessesTaken)
+              await self.bot.say('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
 
-         if guess != number:
+          if guess != number:
               number = str(number)
               await self.bot.say('Nope. The number I was thinking of was ' + number)
 
@@ -95,5 +95,3 @@ class NumbGuess:
 
 def setup(bot):
     bot.add_cog(NumbGuess(bot))
-
-#fekkin pylint: 35 instances of "Found indentation with tabs instead of spaces (mixed-indentation)"
