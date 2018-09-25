@@ -11,7 +11,7 @@ class NumbGuess:
     @commands.command(name="numguess", pass_context=True)
     async def mycom(self, context):
         '''this will start a number guessing game'''
-        GuessesTaken = 0
+        guessesTaken = 0
         await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
         mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 
@@ -31,7 +31,6 @@ class NumbGuess:
 
         elif mode is None:
             await self.bot.say('you think too slowly, I am going to leave now...')
-            break
 
         else:
             await self.bot.say('type again')
@@ -49,7 +48,7 @@ class NumbGuess:
                 continue
 
         await self.bot.say('I am thinking of a number between 1 and 100. You have 30 seconds.')
-        while GuessesTaken != 5:
+        while guessesTaken != 5:
             await self.bot.say('Take a guess.')
             guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 
@@ -69,16 +68,16 @@ class NumbGuess:
                     guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
                     continue
 
-        guessesTaken = guessesTaken + 1
+            guessesTaken = guessesTaken + 1
 
-        if guess < number:
-            await self.bot.say('Your guess is too low.')
+            if guess < number:
+                await self.bot.say('Your guess is too low.')
 
-        if guess > number:
-            await self.bot.say('Your guess is too high.')
+            if guess > number:
+                await self.bot.say('Your guess is too high.')
 
-        if guess == number:
-            break
+            if guess == number:
+                break
 
         if guess == number:
             guessesTaken = str(guessesTaken)
