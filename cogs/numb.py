@@ -30,7 +30,7 @@ class NumbGuess:
             await self.bot.say('no u')
 
         elif mode is None:
-            await self.bot.say('you think too slowly, I am going to leave now...')
+            await self.bot.say('you think too despacito, I am going to leave now...')
 
         else:
             await self.bot.say('type again')
@@ -53,7 +53,7 @@ class NumbGuess:
             guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 
             if not guess:
-                await self.bot.say('you think too slowly, I am going to leave now...')
+                await self.bot.say('you think too despacito, I am going to leave now...')
                 return
 
             while True:
