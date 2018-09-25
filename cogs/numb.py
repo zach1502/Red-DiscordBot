@@ -1,6 +1,5 @@
 '''This is a guess the number game'''
 import random
-import asyncio
 from discord.ext import commands
 
 
@@ -17,20 +16,20 @@ class NumbGuess:
         mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 
         if mode == 'easy':
-            number = random.randint(1,10)
+            number = random.randint(1, 10)
 
         elif mode == 'mid':
-            number = random.randint(1,50)
+            number = random.randint(1, 50)
 
         elif mode == 'hard':
-            number = random.randint(1,100)
+            number = random.randint(1, 100)
 
         #easter egg in honor of rennou, 172 uses before removal, number 1 most used rencc
         elif mode == 'no u':
-            number = random.randint(1,420)
+            number = random.randint(1, 420)
             await self.bot.say('no u')
-        
-        elif mode == None:
+
+        elif mode is None:
             await self.bot.say('you think too slowly, I am going to leave now...')
             break
 
@@ -40,8 +39,8 @@ class NumbGuess:
 
         while True:
             try:
-                mode != 'easy' or 'mid' or 'hard' or 'no u'
-                raise ValueError
+                if mode != 'easy' or 'mid' or 'hard' or 'no u':
+                    raise ValueError
             except ValueError:
                 await self.bot.say('type again')
                 mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
@@ -50,16 +49,16 @@ class NumbGuess:
                 continue
 
         await self.bot.say('I am thinking of a number between 1 and 100. You have 30 seconds.')
-        while guessesTaken != 5:
-          await self.bot.say('Take a guess.')
-          guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+        while GuessesTaken != 5:
+            await self.bot.say('Take a guess.')
+            guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 
-          if not guess:
-              await self.bot.say('you think too slowly, I am going to leave now...')
-              return
+            if not guess:
+                await self.bot.say('you think too slowly, I am going to leave now...')
+                return
 
-          while True:
-            try:
+            while True:
+                try:
                 guess = int(guess)
             except ValueError:
                 await self.bot.say('That\'s not a number, type in a number please')
