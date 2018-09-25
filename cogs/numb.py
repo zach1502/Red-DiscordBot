@@ -59,29 +59,34 @@ class NumbGuess:
 
             while True:
                 try:
-                guess = int(guess)
-            except ValueError:
-                await self.bot.say('That\'s not a number, type in a number please')
-                guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-                continue
-          guessesTaken = guessesTaken + 1
+                    guess = int(guess)
+                except ValueError:
+                    await self.bot.say('That\'s not a number, type in a number please')
+                    guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+                    continue
+                else:
+                    await self.bot.say('That\'s not a number, type in a number please')
+                    guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
+                    continue
 
-          if guess < number:
-              await self.bot.say('Your guess is too low.')
+        guessesTaken = guessesTaken + 1
 
-          if guess > number:
-              await self.bot.say('Your guess is too high.')
+        if guess < number:
+            await self.bot.say('Your guess is too low.')
 
-          if guess == number:
-              break
+        if guess > number:
+            await self.bot.say('Your guess is too high.')
 
-          if guess == number:
-              guessesTaken = str(guessesTaken)
-              await self.bot.say('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
+        if guess == number:
+            break
 
-          if guess != number:
-              number = str(number)
-              await self.bot.say('Nope. The number I was thinking of was ' + number)
+        if guess == number:
+            guessesTaken = str(guessesTaken)
+            await self.bot.say('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
+
+        if guess != number:
+            number = str(number)
+            await self.bot.say('Nope. The number I was thinking of was ' + number)
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #-  _________       __   ____ ___           #
