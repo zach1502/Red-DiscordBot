@@ -60,7 +60,3 @@ def setup(bot):
     '''set up'''
     n = Zalgo(bot) # pylint: disable=invalid-name
     bot.add_cog(n)
-    # fekkin pylint
-    # kill count:
-    # 10 pylint: disable=invalid-name 
-    # 11 pylint: disable=line-too-long
