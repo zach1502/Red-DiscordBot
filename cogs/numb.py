@@ -4,12 +4,12 @@ from discord.ext import commands
 
 
 
-class NumbGuess:
+class NumbGuess: # pylint: disable=too-few-public-methods
     '''this is a number guessing game'''
     def __init__(self, bot):
         self.bot = bot
     @commands.command(name="numguess", pass_context=True)
-    async def mycom(self, context):
+    async def mycom(self, context):  # pylint: disable=too-many-statements and too-many-branches
         '''this will start a number guessing game'''
         guessesTaken = 0
         await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
@@ -97,4 +97,5 @@ class NumbGuess:
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#        -zach1502
 
 def setup(bot):
+    '''setup'''
     bot.add_cog(NumbGuess(bot))
