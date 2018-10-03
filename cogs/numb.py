@@ -89,7 +89,7 @@ class NumbGuess:  # pylint: disable=too-few-public-methods
 #- /   _____/ _____/  |_|    |   \______    # Ascii Art Haiku:
 #- \_____  \_/ __ \   __\    |   /\____ \   #
 #- /        \  ___/|  | |    |  / |  |_> |  # "Ascii art is fun
-#-/_______  /\___  >__| |______/  |   __/   # I spend too much time on this
+#-/_______  /\___  >__| |______/  |   __/   # I spent too much time on this
 #-        \/     \/               |__|      # but it's very fun"
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#        -zach1502
 
