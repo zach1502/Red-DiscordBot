@@ -9,7 +9,7 @@ class NumbGuess: # pylint: disable=too-few-public-methods
     def __init__(self, bot):
         self.bot = bot
     @commands.command(name="numguess", pass_context=True)
-    async def mycom(self, context):  # pylint: disable=too-many-statements and too-many-branches
+    async def mycom(self, context):  # pylint: disable=too-many-statements,too-many-branches 
         '''this will start a number guessing game'''
         guessesTaken = 0
         await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
