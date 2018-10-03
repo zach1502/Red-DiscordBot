@@ -1,18 +1,18 @@
-'''This is a guess the number game'''
+'''This is a guess the number game.'''
 import random
 from discord.ext import commands
 
 
-
-class NumbGuess: # pylint: disable=too-few-public-methods
-    '''this is a number guessing game'''
+class NumbGuess:  # pylint: disable=too-few-public-methods
+    '''This is a number guessing game.'''
     def __init__(self, bot):
         self.bot = bot
+
     @commands.command(name="numguess", pass_context=True)
     async def mycom(self, context):  # pylint: disable=too-many-statements,too-many-branches
-        '''this will start a number guessing game'''
+        '''This will start a number guessing game.'''
         guessesTaken = 0
-        await self.bot.say("how hard would you like the number game to be? (easy/mid/hard)")
+        await self.bot.say('How hard would you like the number game to be? (easy/mid/hard)')
         mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
 
         if mode == 'easy':
@@ -45,7 +45,7 @@ class NumbGuess: # pylint: disable=too-few-public-methods
                 mode = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
                 continue
             else:
-                continue
+                break
 
         await self.bot.say('I am thinking of a number between 1 and 100. You have 30 seconds.')
         while guessesTaken != 5:
@@ -60,15 +60,13 @@ class NumbGuess: # pylint: disable=too-few-public-methods
                 try:
                     guess = int(guess)
                 except ValueError:
-                    await self.bot.say('That\'s not a number, type in a number please')
+                    await self.bot.say("That's not a number, type in a number please")
                     guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
                     continue
                 else:
-                    await self.bot.say('That\'s not a number, type in a number please')
-                    guess = self.bot.wait_for_message(channel=context.message.channel, timeout=30)
-                    continue
+                    break
 
-            guessesTaken = guessesTaken + 1
+            guessesTaken += guessesTaken
 
             if guess < number:
                 await self.bot.say('Your guess is too low.')
@@ -77,15 +75,14 @@ class NumbGuess: # pylint: disable=too-few-public-methods
                 await self.bot.say('Your guess is too high.')
 
             if guess == number:
-                break
-
+                return
+ 
         if guess == number:
-            guessesTaken = str(guessesTaken)
-            await self.bot.say('Good job! You guessed my number in ' + guessesTaken + ' guesses!')
+            await self.bot.say('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')
 
         if guess != number:
-            number = str(number)
-            await self.bot.say('Nope. The number I was thinking of was ' + number)
+            await self.bot.say('Nope. The number I was thinking of was ' + str(number))
+
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #-  _________       __   ____ ___           #
@@ -97,5 +94,5 @@ class NumbGuess: # pylint: disable=too-few-public-methods
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#        -zach1502
 
 def setup(bot):
-    '''setup'''
+    '''Setup.'''
     bot.add_cog(NumbGuess(bot))
