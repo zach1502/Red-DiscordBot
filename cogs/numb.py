@@ -76,9 +76,9 @@ class NumbGuess:  # pylint: disable=too-few-public-methods
 
             if guess == number:
                 return
- 
+
         if guess == number:
-            await self.bot.say('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')
+            await self.bot.say('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')     
 
         if guess != number:
             await self.bot.say('Nope. The number I was thinking of was ' + str(number))
