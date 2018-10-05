@@ -1,5 +1,7 @@
 from random import randint, sample
 from discord.ext import commands
+import string
+
 
 ZALGO_DEFAULT_AMT = 3
 ZALGO_MAX_AMT = 7
@@ -34,6 +36,8 @@ class Zalgo:
     async def zalgo(self, *, text: str):
         if len(text) >= 1000:
             await self.bot.say("You know, Discord has a limit of 2k characters, you just exceeded half of that, keep it shorter please")
+        elif string.digits == False:
+            await self.bot.say("I can't Zalgoify just numbers. Add some letters into the mix please!")
         else:
             fw = text.split()[0]
             try:
