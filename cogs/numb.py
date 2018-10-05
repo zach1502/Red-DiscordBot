@@ -38,7 +38,7 @@ class NumbGuess:  # pylint: disable=too-few-public-methods
 
         while True:
             try:
-                if mode != 'easy' or 'mid' or 'hard' or 'no u':
+                if mode not in ["easy", "mid", "hard", "no u"]:
                     raise ValueError
             except ValueError:
                 await self.bot.say('type again')
