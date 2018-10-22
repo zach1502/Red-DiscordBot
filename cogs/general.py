@@ -68,7 +68,13 @@ class General:
         Defaults to 100.
         """
         author = ctx.message.author
-        if number > 1:
+        if number > 100000000000000000000000000000000000000000000:
+            await self.bot.say("...no...just why..? Keep the number below the total " +
+                               "(weight in grams) "+
+                               "of matter contained in the grand total of all " +
+                               "the stars in the Milky Way Galaxy. " +
+                               "(also called a Tredecillion or a septilliad")
+        elif number > 1 and number < 100000000000000000000000000000000000000000000:
             n = randint(1, number)
             await self.bot.say("{} :game_die: {} :game_die:".format(author.mention, n))
         else:
@@ -154,8 +160,11 @@ class General:
     @commands.command()
     async def lmgtfy(self, *, search_terms : str):
         """Creates a lmgtfy link"""
-        search_terms = escape_mass_mentions(search_terms.replace("+","%2B").replace(" ", "+"))
-        await self.bot.say("https://lmgtfy.com/?q={}".format(search_terms))
+        if len(search_terms) > 1000:
+            await self.bot.say("I think you know why I won't allow this...")
+        else:
+            search_terms = escape_mass_mentions(search_terms.replace("+","%2B").replace(" ", "+"))
+            await self.bot.say("https://lmgtfy.com/?q={}".format(search_terms))
 
     @commands.command(no_pm=True, hidden=True)
     async def hug(self, user : discord.Member, intensity : int=1):
