@@ -109,6 +109,20 @@ class Spoilers: # pylint: disable=too-many-instance-attributes
                                            id=payload["guild_id"])
                 reactedUser = discord.utils.get(server.members,
                                                 id=payload["user_id"])
+                if reactedUser.bot:
+                    return
+
+                channel = discord.utils.get(server.channels,
+                                            id=payload["channel_id"])
+                message = await self.bot.get_message(channel, msgId)
+
+                if payload["emoji"]["id"]:
+                    emoji = discord.Emoji(name=payload["emoji"]["name"],
+                                          id=payload["emoji"]["id"],
+                                          server=server)
+                else:
+                    emoji = payload["emoji"]["name"]
+                await self.bot.remove_reaction(message, emoji, reactedUser)
 
                 if (msgId in self.onCooldown.keys() and
                         reactedUser.id in self.onCooldown[msgId].keys() and
@@ -131,11 +145,12 @@ class Spoilers: # pylint: disable=too-many-instance-attributes
                         self.onCooldown[msgId] = {}
                     self.onCooldown[msgId][reactedUser.id] = (datetime.now() +
                                                               timedelta(seconds=COOLDOWN))
-                except discord.errors.Forbidden:
+                except (discord.errors.Forbidden, discord.errors.HTTPException) as error:
                     LOGGER.error("Could not send DM to %s#%s (%s).",
                                  reactedUser.name,
                                  reactedUser.discriminator,
                                  reactedUser.id)
+                    LOGGER.error(error)
 
 def setup(bot):
     """Add the cog to the bot."""
