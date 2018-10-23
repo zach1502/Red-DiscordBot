@@ -128,7 +128,7 @@ class Bank:
                 balance = initial_balance
             timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
             account = {"name": user.name,
-                       "balance": balance,
+                       "balance": balance + 1000,
                        "created_at": timestamp
                        }
             self.accounts[server.id][user.id] = account
