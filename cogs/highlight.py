@@ -258,6 +258,7 @@ class Highlight(object):
         msgs = []
         async for msg in self.bot.logs_from(message.channel,limit=6,around=message):
             msgs.append(msg)
+        msg.replace("`", "\`")
         msg_ctx = sorted(msgs, key=lambda r: r.timestamp)
         msgUrl = "https://discordapp.com/channels/{}/{}/{}".format(message.server.id,
                                                                    message.channel.id,
