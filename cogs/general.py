@@ -68,13 +68,14 @@ class General:
         Defaults to 100.
         """
         author = ctx.message.author
-        if number > 100000000000000000000000000000000000000000000:
+        Hoodini_Number = 100000000000000000000000000000000000000000000
+        if number > Hoodini_Number:
             await self.bot.say("...no...just why..? Keep the number below the total " +
                                "(weight in grams) "+
                                "of matter contained in the grand total of all " +
                                "the stars in the Milky Way Galaxy. " +
                                "(also called a Tredecillion or a septilliad")
-        elif number > 1 and number < 100000000000000000000000000000000000000000000:
+        elif number > 1 and number < Hoodini_Number:
             n = randint(1, number)
             await self.bot.say("{} :game_die: {} :game_die:".format(author.mention, n))
         else:
@@ -161,7 +162,7 @@ class General:
     async def lmgtfy(self, *, search_terms : str):
         """Creates a lmgtfy link"""
         if len(search_terms) > 1000:
-            await self.bot.say("I think you know why I won't allow this...")
+            await self.bot.say("I think you know why I won't allow this...(too long)")
         else:
             search_terms = escape_mass_mentions(search_terms.replace("+","%2B").replace(" ", "+"))
             await self.bot.say("https://lmgtfy.com/?q={}".format(search_terms))
