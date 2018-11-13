@@ -258,7 +258,6 @@ class Highlight(object):
         msgs = []
         async for msg in self.bot.logs_from(message.channel,limit=6,around=message):
             msgs.append(msg)
-        msg.replace("`", "\`")
         msg_ctx = sorted(msgs, key=lambda r: r.timestamp)
         msgUrl = "https://discordapp.com/channels/{}/{}/{}".format(message.server.id,
                                                                    message.channel.id,
@@ -270,6 +269,7 @@ class Highlight(object):
         for msg in msg_ctx:
             time = msg.timestamp
             time = time.replace(tzinfo=timezone.utc).astimezone(tz=None).strftime('%H:%M:%S %Z')
+            msg.replace("`", "\`")
             embed_msg += "[{0}] {1.author.name}#{1.author.discriminator}: {1.content}\n".format(time,msg)
             if self._is_word_match(word, msg.content):
                 msg_still_there = True
