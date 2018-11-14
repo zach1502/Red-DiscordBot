@@ -271,7 +271,7 @@ class Highlight(object):
             time = time.replace(tzinfo=timezone.utc).astimezone(tz=None).strftime('%H:%M:%S %Z')
             embed_msg += "[{0}] {1.author.name}#{1.author.discriminator}: {1.content}\n".format(time,msg)
             escaped_msg = embed_msg
-            escaped_msg.replace("`", "\`")
+            escaped_msg = escaped_msg.replace("`", "\`")
             embed_msg += escaped_msg
             if self._is_word_match(word, msg.content):
                 msg_still_there = True
