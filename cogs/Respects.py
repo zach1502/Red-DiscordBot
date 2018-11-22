@@ -2,6 +2,7 @@
 import time
 import asyncio
 import random
+import discord
 
 
 class Respects: # pylint-disable=too-few-public-methods
@@ -11,25 +12,26 @@ class Respects: # pylint-disable=too-few-public-methods
     @commands.command(name="f", pass_context=True) # pylint-disable=too-few-public-methods
     async def mycom(self, ctx):
         '''Press "F" to pay respects.'''
-        Initial_Time = time.time()
-        Delta_Time = time.time() - Initial_Time
-        who_F = [] # pylint-disable=invalid-name
-
         who_F.append(ctx.message.author + ", ")
         hearts = ["💚", "💙", "💜", "💘", "🧡", "♥️", "💓", "💖", "💕", "💛", "💗", "💞", "💝", "❤️", "🖤"]
         await bot.say(who_F + "has paid their respects " + random.choice(hearts)) # pylint-disable=undefined-variable
     
-    async def Helper(self, ctx):
+    async def Helper(ctx, channel: discord.channel):
         '''Apu Apustaja checks when latest invocation was.'''
-        while Delta_Time < 10:
-            Delta_Time = time.time() - Initial_Time
-        while Delta_Time > 10:
+        Initial_Time = time.time()
+        Get_Context = (get_message(channel, id))
+        if Get_Context == None: # in a dilima, hold on letme get my ti84
+            who_F.append(ctx.message.author)
+        else:
             who_F = []
+            Get_Context = (get_message(channel, id))
 
-        #we`ll probably want a helper function to do some kind of a lookup to see when the latest invocation was
-        #and if it exceeds, then we want a new "has paid respects", 
-       #else append to the old one, delete the pre-existing "respects", 
-        #and put a new one.
+#If there was no invocation, just send the message with who has paid respects 
+#AND save the message ID, and save who has paid respects, the message ID, and the invocation time to the lookup.
+
+#If there was, check the time, and see if it's within a threshold (you determine). 
+#If the time has passed, create a new one.
+#Else just delete the previous message and make a new one in the same manner as above.
 
 
 # Set Down
